@@ -144,11 +144,7 @@ input, textarea, select {{
     background-color: {C_SURF2} !important;
     color: {C_TEXT} !important;
 }}
-/* Dataframe / table cells */
-[data-testid="stDataFrame"] * {{
-    background-color: {C_SURF} !important;
-    color: {C_TEXT} !important;
-}}
+
 </style>""", unsafe_allow_html=True)
 
 
