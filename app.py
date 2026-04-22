@@ -62,7 +62,7 @@ def _L(height=340, title="", margin=None, extra=None):
 # ── Page config & CSS ───────────────────────────────────────────────────────
 st.set_page_config(page_title="Century Plyboards — Kandla Plant",
                    page_icon="🏭", layout="wide",
-                   initial_sidebar_state="expanded")
+                   initial_sidebar_state="collapsed")
 
 st.markdown(f"""
 <style>
@@ -115,6 +115,40 @@ header[data-testid="stHeader"]{{background:transparent!important;}}
 ::-webkit-scrollbar{{width:5px;height:5px;}}
 ::-webkit-scrollbar-track{{background:{C_BG};}}
 ::-webkit-scrollbar-thumb{{background:{C_BORDER};border-radius:3px;}}
+
+/* Force dark mode — override Streamlit's light theme variables */
+:root {{
+    --background-color: {C_BG} !important;
+    --secondary-background-color: {C_SURF} !important;
+    --text-color: {C_TEXT} !important;
+    --font: 'Space Grotesk', sans-serif !important;
+}}
+[data-testid="stAppViewContainer"] {{
+    background-color: {C_BG} !important;
+}}
+[data-testid="stMain"] {{
+    background-color: {C_BG} !important;
+}}
+[data-testid="stBottom"] {{
+    background-color: {C_BG} !important;
+}}
+section[data-testid="stSidebarContent"] {{
+    background-color: {C_SURF} !important;
+}}
+/* Override any white backgrounds Streamlit injects */
+div[class*="block-container"] {{
+    background-color: {C_BG} !important;
+}}
+/* Inputs, dropdowns, text areas */
+input, textarea, select {{
+    background-color: {C_SURF2} !important;
+    color: {C_TEXT} !important;
+}}
+/* Dataframe / table cells */
+[data-testid="stDataFrame"] * {{
+    background-color: {C_SURF} !important;
+    color: {C_TEXT} !important;
+}}
 </style>""", unsafe_allow_html=True)
 
 
