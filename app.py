@@ -823,10 +823,11 @@ def render_machine_tab(df, grp):
 
     max_min = log["Minutes"].max() or 1
     st.dataframe(
-        log.style.applymap(lambda v: _o(v, max_min), subset=["Minutes"]),
+        log.style.apply(
+            lambda col: [_o(v, max_min) for v in col], subset=["Minutes"]
+        ),
         use_container_width=True, height=400,
     )
-
 
 # ═══════════════════════════════════════════════════════════════════════════
 # MAIN
